@@ -70,6 +70,8 @@ server {
 	proxy_buffering off;
 	error_log /proc/self/fd/2;
 	access_log /proc/self/fd/1;
+	server_tokens off;
+	client_max_body_size 20M;
 
 	location / {
 		proxy_pass http://{{ $host }};
@@ -100,6 +102,8 @@ server {
 	proxy_buffering off;
 	error_log /proc/self/fd/2;
 	access_log /proc/self/fd/1;
+	server_tokens off;
+	client_max_body_size 20M;
 
 	location / {
 		proxy_pass http://default_vhost:8080;
