@@ -65,6 +65,7 @@ server {
 {{ end }}
 	server_name {{ $host }};
 	proxy_buffering off;
+	proxy_cache one;
 	error_log /proc/self/fd/2;
 	access_log /proc/self/fd/1;
 	server_tokens off;
@@ -94,6 +95,7 @@ server {
 {{ end }}
 	server_name {{ .Env.DEFAULT_VHOST }};
 	proxy_buffering off;
+	proxy_cache one;
 	error_log /proc/self/fd/2;
 	access_log /proc/self/fd/1;
 	server_tokens off;
