@@ -2,12 +2,12 @@
 
 if [ -z "$1" ] || [ -z "$2" ]
 then
-	tail -n 1 /etc/hosts | sed -r 's/(.*) default_vhost (.*)/\2/g'
+    tail -n 1 /etc/hosts | sed -r 's/(.*) default_vhost (.*)/\2/g'
 else
-	ip=$1
-	host=$2
-	cp /etc/hosts /etc/hosts.tmp
-	sed -r 's/(.*)default_vhost(.*)/'$ip' default_vhost '$host'/g' < /etc/hosts.tmp > /etc/hosts
-	rm /etc/hosts.tmp
-	nginx -s reload
+    ip=$1
+    host=$2
+    cp /etc/hosts /etc/hosts.tmp
+    sed -r 's/(.*)default_vhost(.*)/'$ip' default_vhost '$host'/g' < /etc/hosts.tmp > /etc/hosts
+    rm /etc/hosts.tmp
+    nginx -s reload
 fi
